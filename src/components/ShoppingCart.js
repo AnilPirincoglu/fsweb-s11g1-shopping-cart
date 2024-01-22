@@ -3,20 +3,15 @@ import { ScCartCheckout } from "./scParts";
 
 // Components
 import Item from "./ShoppingCartItem";
+import { useCart } from "../context/CartContext";
 
 const ShoppingCart = (props) => {
-  const getCartTotal = () => {
-    return props.cart
-      .reduce((acc, value) => {
-        return acc + value.price;
-      }, 0)
-      .toFixed(2);
-  };
+  const { cart, getCartTotal } = useCart();
 
   return (
     <div>
-      {props.cart.map((item) => (
-        <Item key={item.id} {...item} />
+      {cart.map((item, order) => (
+        <Item key={`${item.id}${order}`} order={order} {...item} />
       ))}
 
       <ScCartCheckout>

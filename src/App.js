@@ -7,24 +7,18 @@ import Products from "./components/Products";
 import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
-  const [cart, setCart] = useState([]);
-
-  const addItem = (item) => {
-    // verilen itemi sepete ekleyin
-  };
-
   return (
     <div className="App">
-      <Navigation cart={cart} />
+      <Navigation />
 
       {/* Routelar */}
       <main className="content">
         <Route exact path="/">
-          <Products addItem={addItem} />
+          <Products />
         </Route>
 
         <Route path="/cart">
-          <ShoppingCart cart={cart} />
+          <ShoppingCart />
         </Route>
       </main>
     </div>

@@ -4,6 +4,7 @@ import styled from "styled-components";
 // Components
 import Product from "./Product";
 import { useProducts } from "../context/ProductContext";
+import { useCart } from "../context/CartContext";
 
 const ScProducts = styled.section`
   display: grid;
@@ -21,6 +22,7 @@ const ScProducts = styled.section`
 
 const Products = (props) => {
   const { products } = useProducts();
+  const { getCartTotal } = useCart();
 
   return (
     <ScProducts>
